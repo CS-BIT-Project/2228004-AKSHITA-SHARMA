@@ -21,4 +21,4 @@ Using this data, the app:
 - 🎶 Curated song list that matches the vibe
 - ⚙️ Flask backend to handle model inference and API calls
 
-## 📁 Project Structure
+
