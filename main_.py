@@ -16,8 +16,8 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 # Spotify credentials
-SPOTIFY_CLIENT_ID = "d48f514a873145dd8059b91b21e71651"
-SPOTIFY_CLIENT_SECRET = "6fc3e06d70b04c44ab6f896bb7109aa8"
+SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
+SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
 
 # Spotify authentication
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
