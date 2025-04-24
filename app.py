@@ -112,7 +112,7 @@ def home():
         if user_input:
             suggestions["songs"] = get_suggestions(user_input)
 
-    return render_template("hlo.html",
+    return render_template("index.html",
                            suggestions=suggestions,
                            uploaded_image=uploaded_image,
                            user_input=user_input,
