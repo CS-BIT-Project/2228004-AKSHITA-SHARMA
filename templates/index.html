@@ -1,0 +1,453 @@
+<!-- Updated Caption Beat HTML with pastel theme and clean layout -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caption Beat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+        .upload-box {
+            border: 2px dashed white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .upload-content i {
+            margin-top: 45px;
+            font-size: 40px;
+            color: rgb(107, 74, 219);
+            margin-bottom: 15px;
+        }
+
+    body {
+    background-color: #DEF0FC;
+      font-family: 'Poppins', sans-serif;
+     <!--- background:linear-gradient(135deg, #e6c9f2, #a6d3ed); --->
+      color: #333;
+      padding-bottom: 40px;
+      overflow-y: scroll;
+      scrollbar-width: none;
+
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+   .navbar {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .navbar::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.pinimg.com/736x/83/76/88/837688c45c3231153043152b0fe890f4.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(6px);
+      z-index: -1;
+    }
+
+    .navbar .container {
+      height:100px;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      padding: 20px;
+      align-items: left;
+    }
+
+    .logo {
+      display: flex;
+      align-items: left;
+      gap: 20px;
+      font-weight: bold;
+      font-size: 22px;
+      color: #9D76C1;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    .header {
+      position: relative;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+<!--     /* background-image: url('https://i.pinimg.com/736x/31/dc/c2/31dcc2405595d7202287e11a5146d84f.jpg');*/-->
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      z-index: 1;
+    }
+
+    .header h1,
+    .header p {
+      position: relative;
+      z-index: 2;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #9CA4B7;
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      color: #3277BF;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      color: #3285CC;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    form {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+      z-index: 1;
+      background: transparent;
+    }
+
+    form::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.pinimg.com/736x/65/d6/b6/65d6b6447e454e4d6a45a4e056d5cb6e.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(6px);
+      z-index: -1;
+    }
+
+    input[type="file"],
+    select,
+    input[type="text"],
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: 1px solid #FFFFFF;
+      border-radius: 8px;
+      font-size: 16px;
+
+    }
+
+    button {
+      background-color: #3285CC;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #9d65b4;
+    }
+
+    .section {
+      background-color: #BCE4FD;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .section h2 {
+      color:#3285CC;
+      margin-bottom: 10px;
+    }
+
+    .quote-list,
+    .song-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+
+    .quote-list li,
+    .song-list li {
+      background-color: #FFFFFF;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    select {
+      background-color: #f3e8ff;
+      color: #4b0082;
+      font-weight: 500;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%239D76C1" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 18px;
+    }
+
+    #drop-area {
+      border: 2px dashed #FFFFFF;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      background-color: #fdf7ff;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    #drop-area p {
+      margin: 0;
+      color: #3285CC;
+      font-size: 15px;
+    }
+
+    #fileElem {
+      display: none;
+    }
+
+    #preview {
+      max-width: 300px;
+      max-height: 200px;
+      border-radius: 12px;
+      margin-top: 15px;
+      object-fit: contain;
+      background-color: #3285CC;
+    }
+
+    #preview {
+      margin: 20px auto 0;
+      display: block;
+      max-width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        #preview.hidden {
+            display: none; /* Hide the preview when the class 'hidden' is applied */
+        }
+
+        #preview img {
+            max-width: 100%;
+            max-height: 280px; /* Limit height for better layout */
+            object-fit: cover; /* Cover the area while maintaining aspect ratio */
+            border-radius: 8px; /* Rounded corners for the image */
+        }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar" style="object-fit: contain;">
+  <div class="logo">
+      <img src="https://i.pinimg.com/736x/8e/ee/22/8eee22cf0114f41e437ed21d1608b457.jpg" alt="Logo" style="height: 250px; object-fit: contain;" />
+  <div class="header">
+    <h1 style="text-align:center;">Fuel your feed with fire captions & beats</h1>
+    <p>Express More with Less,Just Upload Your Photos </p>
+  </div>
+  </div>
+</nav>
+  <!-- Main Form -->
+  <br>
+  <br>
+  <div class="container">
+    <form action="/" method="post" enctype="multipart/form-data">
+          <div class="container">
+        <div class="upload-box">
+            <div class="drop-zone" id="dropZone">
+                <input type="file" id="fileInput" accept="image/*" name="image" />
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <div class="upload-text">
+                        <p>Drag and drop your image here</p>
+                        <p>or</p>
+                    </div>
+                </div>
+                <div class="container" id="preview-container">
+                    <div id="preview" class="hidden">
+                        <img id="imagePreview" alt="_Preview" class="rounded-lg shadow-md" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<br>
+      <br>
+      <label style="color:white;"> Choose Your Mood</label>
+      <select style="background-color:white; color:black;" name="mood" required>
+        <option value="">--Select Mood--</option>
+        <option value="happy">Happy 😊</option>
+        <option value="sad">Sad 😢</option>
+        <option value="chill">Chill 😌</option>
+        <option value="romantic">Romantic ❤️</option>
+        <option value="energetic">Energetic ⚡</option>
+        <option value="heartbreak">Heartbreak 💔</option>
+        <option value="motivated">Motivated 💪</option>
+        <option value="angry">Angry 😤</option>
+        <option value="nostalgic">Nostalgic 🕰️</option>
+        <option value="aesthetic">Aesthetic ✨</option>
+        <option value="party">Party 🎉</option>
+        <option value="focus">Focus 🎯</option>
+        <option value="lofi">Lo-fi 🎧</option>
+        <option value="funny">Funny 😂</option>
+        <option value="roadtrip">Roadtrip 🚗</option>
+        <option value="study">Study 📚</option>
+      </select>
+<br>
+      <br>
+      <label style="color:white;">Or Enter Custom Mood</label>
+      <input type="text" name="text" placeholder="Type your mood here...">
+      <div  class="flex justify-center" style="text-align: center; margin-top:15px">
+        <button type="submit" style="width:150px;">Generate 🎶</button>
+      </div>
+
+    </form>
+
+
+    {% if image_caption %}
+    <div class="section">
+      <h2>AI-Generated Image Description:</h2>
+      <p><strong>{{ image_caption }}</strong></p>
+    </div>
+    {% endif %}
+
+    {% if generated_quotes %}
+    <div class="section">
+      <h2>✨Suggested Captions</h2>
+      <ul class="quote-list">
+        {% for quote in generated_quotes %}
+        <li>"{{ quote }}"</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if suggestions.songs %}
+    <div class="section">
+      <h2>🎶 Suggested Songs</h2>
+      <ul class="song-list">
+        {% for song in suggestions.songs %}
+        <li>
+          <p><strong>{{ song.name }}</strong> by {{ song.artist }}</p>
+          <iframe src="{{ song.embed }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+  const fileInput = document.getElementById("fileInput"); // Main file input
+  const dropArea = document.getElementById("drop-area");  // Drop area
+  const imagePreview = document.getElementById("imagePreview"); // Image preview element
+  const previewBox = document.getElementById("preview");  // Preview container
+  const resultsContainer = document.getElementById("results");
+  const generateForm = document.getElementById("generateForm");
+  const chooseFileButton = document.querySelector('.upload-content .btn');
+
+  // Trigger file input on drop area click
+  dropArea.addEventListener('click', () => fileInput.click());
+
+  // Highlight drop area when file is dragged over
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropArea.style.backgroundColor = "#fceeff";
+    }, false);
+  });
+
+  // Remove highlight when file is dragged out or dropped
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropArea.style.backgroundColor = "#fdf7ff";
+    }, false);
+  });
+
+  // Handle file drop
+  dropArea.addEventListener('drop', (e) => {
+    const files = e.dataTransfer.files;
+    if (files.length > 0 && files[0].type.startsWith('image/')) {
+      fileInput.files = files; // Set dropped file to input
+      previewImage(files[0]);
+    }
+  });
+
+  // Handle file selection from input
+  fileInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file && file.type.startsWith("image/")) {
+      previewImage(file);
+    } else {
+      previewBox.classList.add("hidden");
+    }
+  });
+
+  // Preview image
+  function previewImage(file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+      previewBox.classList.remove("hidden");
+    };
+    reader.readAsDataURL(file);
+  }
+</script>
+</body>
+</html>
