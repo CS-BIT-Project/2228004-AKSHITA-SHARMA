@@ -1,20 +1,18 @@
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
 
-processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+# Load BLIP model and processor
+processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base", use_fast=True)
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
 def generate_image_caption(image_path):
+    """Generates a caption for an uploaded image using BLIP."""
     try:
         image = Image.open(image_path).convert("RGB")
-        inputs = processor(images=image, return_tensors="pt")
-        outputs = model.generate(**inputs, max_length=50, num_beams=5)
-        caption = processor.decode(outputs[0], skip_special_tokens=True)
+        inputs = processor(image, return_tensors="pt")
+        caption_ids = model.generate(**inputs)
+        caption = processor.decode(caption_ids[0], skip_special_tokens=True)
         return caption
     except Exception as e:
-        print(f"Error generating caption: {e}")
-        return ""
+        return f"Error generating caption: {e}"
 
-    # # Spotify credentials
-    # SPOTIFY_CLIENT_ID = "d48f514a873145dd8059b91b21e71651"
-    # SPOTIFY_CLIENT_SECRET = "6fc3e06d70b04c44ab6f896bb7109aa8"
